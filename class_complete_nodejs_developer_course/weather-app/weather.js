@@ -23,7 +23,8 @@ const getCoordinates = (postalCode, callback) => {
             } else {
                 location_geo_encoded = {
                     longitude : response.body.features[0].center[0],
-                    latitude : response.body.features[0].center[1]
+                    latitude : response.body.features[0].center[1],
+                    name : response.body.features[0].place_name
                 }
             }
         }
@@ -34,9 +35,9 @@ const getCoordinates = (postalCode, callback) => {
 }
 
 // Gets the weather for a specified area specified by lat and long
-const getWeather = (longitude, latitude, callback) => {
+const getWeather = (longitude, latitude, name, callback) => {
     const url =
-        `https://api.darksky.net/forecast/c60abdec63e489f3f628cc256390c70e/${longitude},${latitude}?units=us`;
+        `https://api.darksky.net/forecast/c60abdec63e489f3f628cc256390c70e/${latitude},${longitude}?units=us`;
 
     const request_options = {
         url: url,
@@ -52,7 +53,8 @@ const getWeather = (longitude, latitude, callback) => {
             } else {
                 location_weather = {
                     current_temperature : response.body.currently.temperature,
-                    current_probability_precip : response.body.currently.precipProbability
+                    current_probability_precip : response.body.currently.precipProbability,
+                    name : name
                 };
             }
         }
