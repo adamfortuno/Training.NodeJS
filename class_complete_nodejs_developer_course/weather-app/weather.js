@@ -35,7 +35,7 @@ const getCoordinates = (postalCode, callback) => {
 }
 
 // Gets the weather for a specified area specified by lat and long
-const getWeather = (longitude, latitude, name, callback) => {
+const getWeather = ( { longitude, latitude, name }, callback) => {
     const url =
         `https://api.darksky.net/forecast/c60abdec63e489f3f628cc256390c70e/${latitude},${longitude}?units=us`;
 

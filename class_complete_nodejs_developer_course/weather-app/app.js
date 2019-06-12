@@ -16,7 +16,7 @@ weather.getCoordinates(postal_code, (error, coordinates) => {
     if ( error ) {
         logError( error );
     } else {
-        weather.getWeather(coordinates.longitude, coordinates.latitude, coordinates.name, (error, weather) => {
+        weather.getWeather(coordinates, (error, weather) => {
             if ( error ) {
                 logError ( error );
             } else {
