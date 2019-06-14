@@ -53,7 +53,7 @@ const getWeather = ( { longitude, latitude, name }, callback) => {
             } else {
                 location_weather = {
                     current_temperature : response.body.currently.temperature,
-                    current_probability_precip : response.body.currently.precipProbability,
+                    current_probability_precip : response.body.currently.precipProbability * 100,
                     name : name
                 };
             }

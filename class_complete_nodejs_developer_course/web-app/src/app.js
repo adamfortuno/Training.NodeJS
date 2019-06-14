@@ -39,7 +39,7 @@ app.get('/about', (request, response) => {
     });
 });
 
-app.get('/forecast', (request, response) => {
+app.get('/weather', (request, response) => {
     let postal_code = (!request.query.postalCode) ? 19087 : request.query.postalCode;
     
     weather.getCoordinates(postal_code, (error, coordinates) => {
@@ -58,7 +58,7 @@ app.get('/forecast', (request, response) => {
                         date: now
                     });
                 } else {
-                    response.render('forecast', {
+                    response.send({
                         title: "Forecast Page",
                         current_temperature: weather.current_temperature,
                         current_probability_precip: weather.current_probability_precip,
@@ -71,8 +71,12 @@ app.get('/forecast', (request, response) => {
     });
 });
 
-
-    
+app.get('/forecast', (request, response) => {
+    response.render('forecast', {
+        name: 'Adam',
+        date: now
+    });
+});
 
 
 // catch all for a 404 after the help path
