@@ -12,6 +12,7 @@ const weather = require("./weather.js");
 const log = console.log;
 const app = express();
 const now = new Date();
+const port = process.env.PORT || 8080;
 
 let public_directory = path.join(__dirname, '../public');
 let views_directory = path.join(__dirname, '../templates/views');
@@ -89,5 +90,5 @@ app.get('*', (request, response) => {
     response.render('404');
 })
 
-app.listen(8080, (request, response) => log('Server is up!') );
+app.listen(port, (request, response) => log(`Server is up and listening on ${port}!`) );
 

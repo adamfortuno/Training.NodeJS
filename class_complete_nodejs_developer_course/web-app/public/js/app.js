@@ -13,7 +13,7 @@ weather_form.addEventListener('submit', (e)=> {
 
 	box_result.textContent = "Loading...";
 
-	fetch(`http://localhost:8080/weather?postalCode=${current_location}`).then((response) => {
+	fetch(`/weather?postalCode=${current_location}`).then((response) => {
 		response.json().then((data)=> {
 			if (data.error) {
 				error_message = "An error occurred.";
