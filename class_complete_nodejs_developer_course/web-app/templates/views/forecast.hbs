@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{title}}</title>
+        <link rel="stylesheet" href="/css/styles.css" />
+        <script src="/js/app.js"></script>
+    </head>
+    <body>
+        <div class="main">
+            {{>header}}
+            <p>It is currently {{current_temperature}} degrees with a {{current_probability_precip}} chance of rain in {{coordinates.name}}.</p>
+        </div>
+        {{>footer}}
+    </body>
+</html>

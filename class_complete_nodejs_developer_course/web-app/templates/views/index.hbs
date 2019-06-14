@@ -3,10 +3,14 @@
     <head>
         <title>Welcome Page (Handlebars)</title>
         <link rel="stylesheet" href="/css/styles.css" />
+        <link rel="icon" href="/image/zoey.png"
         <script src="/js/app.js"></script>
     </head>
     <body>
-        <h1>{{name}}</h1>
-        <img src="/image/chilling.jpg">
+        <div class="main">
+            {{>header}}
+            <img class="me" src="/image/chilling.jpg">
+        </div>
+        {{>footer}}
     </body>
 </html>
